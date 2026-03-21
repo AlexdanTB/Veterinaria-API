@@ -20,4 +20,12 @@ public class Consulta {
 
     @Size(max = 200)
     private String diagnostico;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "mascota_id")
+    private Mascota mascota;
 }

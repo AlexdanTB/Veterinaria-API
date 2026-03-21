@@ -6,8 +6,10 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
-@Table(name = "usuario")
+@Table(name = "usuarios")
 @Data
 @NoArgsConstructor
 public class Usuario {
@@ -25,4 +27,8 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     private Rol rol;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Consulta> consultas;
+
 }

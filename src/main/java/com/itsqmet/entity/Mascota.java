@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "mascotas")
 @Data
@@ -20,4 +22,7 @@ public class Mascota {
     private String especie;
 
     private int edad;
+
+    @OneToMany(mappedBy = "mascota")
+    private List<Consulta> consultas;
 }
