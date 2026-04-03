@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -17,6 +18,10 @@ public class UsuarioController {
     @GetMapping
     public List<Usuario> getUsuarios(){
         return usuarioService.leerUsuarios();
+    }
+    @GetMapping("/{id}")
+    public Optional<Usuario> usuarioPorID(@PathVariable Long id){
+        return usuarioService.buscarUsuarioPorID(id);
     }
 
     //Guardar

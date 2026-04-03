@@ -50,7 +50,7 @@ public class UsuarioService implements UserDetailsService {
                 .orElseThrow(()->new RuntimeException("Usuario no existe"));
         usuarioEncontrado.setNombre(usuario.getNombre());
         usuarioEncontrado.setEmail(usuario.getEmail());
-        usuarioEncontrado.setRol(usuario.getRol());
+        //usuarioEncontrado.setRol(usuario.getRol());
 
         //Validar para que la contraseña se actualice en el
         if(usuario.getPassword()!=null&& !usuario.getPassword().equals(usuarioEncontrado.getPassword())){
