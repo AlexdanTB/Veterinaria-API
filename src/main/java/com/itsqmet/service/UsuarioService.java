@@ -76,4 +76,15 @@ public class UsuarioService implements UserDetailsService {
                 .build();
     }
 
+    //Validar el login
+    public Usuario validarLogin(String email, String password){
+        //Traer los datos
+        UserDetails userDetails = loadUserByUsername(email);
+        //Comparar el texto plano de la contraseña con la base de datos
+        if(passwordEncoder.matches(password, userDetails.getPassword())){
+            return usuarioRepository.findByEmail(email).get();//Poner optional
+        }
+        throw new RuntimeException("Error de autenticación");
+    }
+
 }
