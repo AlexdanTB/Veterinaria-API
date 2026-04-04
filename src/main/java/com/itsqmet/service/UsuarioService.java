@@ -48,8 +48,9 @@ public class UsuarioService implements UserDetailsService {
     public Usuario actualizarUsuario(Long id, Usuario usuario){
         Usuario usuarioEncontrado = buscarUsuarioPorID(id)
                 .orElseThrow(()->new RuntimeException("Usuario no existe"));
-        usuarioEncontrado.setNombre(usuario.getNombre());
+        usuarioEncontrado.setName(usuario.getName());
         usuarioEncontrado.setEmail(usuario.getEmail());
+        usuarioEncontrado.setPhone(usuario.getPhone());
         //usuarioEncontrado.setRol(usuario.getRol());
 
         //Validar para que la contraseña se actualice en el

@@ -18,14 +18,14 @@ public class Usuario {
     private Long id;
 
     @Size(max = 10, min = 3)
-    private String nombre;
+    private String name;
 
     @Column(unique = true)
     private String email;
 
     private String password;
 
-    private String telefono;
+    private String phone;
 
     @Enumerated(EnumType.STRING)
     private Rol rol;
